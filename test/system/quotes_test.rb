@@ -55,4 +55,8 @@ class QuotesTest < ApplicationSystemTestCase
     click_on "Delete", match: :first
     assert_no_text @quote.name
   end
+  setup do
+    # We need to order quote as well in the system tests
+    @quote = Quote.ordered.first
+  end
 end
